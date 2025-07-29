@@ -20,10 +20,10 @@ st.title("Aplikasi Manajemen Buku")
 
 #format peenulisan biasa
 st.write("### Pilihan Menu:")
-st.write("1. Lihat Data")
-st.write("2. Tambah Data")
-st.write("3. Ubah Data")
-st.write("4. Hapus Data")
+st.write("1. Lihat Data Buku")
+st.write("2. Tambah Data Buku")
+st.write("3. Ubah Data Buku")
+st.write("4. Hapus Data Buku")
 
 menu = st.text_input("Masukkan angka menu (1-4):")
 
@@ -37,7 +37,7 @@ if menu == "1":
         st.info("Belum ada data.")
 
 elif menu == "2":
-    st.subheader("➕ Tambah buku")
+    st.subheader("➕ Tambah Data Buku")
     judul = st.text_input("Masukkan Judul Buku")
     penulis = st.text_input("Masukkan Nama Penulis")
     tahun_terbit = st.text_input("Masukkan Tahun Terbit")
@@ -50,12 +50,12 @@ elif menu == "2":
             st.warning("Harap isi semua kolom.")
 
 elif menu == "3":
-    st.subheader("✏️ Ubah Mahasiswa")
+    st.subheader("✏️ Ubah Data Buku")
     data = st.session_state.data_buku
     
 
 elif menu == "4":
-    st.subheader("🗑️ Hapus Mahasiswa")
+    st.subheader("🗑️ Hapus Data Buku")
     
 
 elif menu != "":

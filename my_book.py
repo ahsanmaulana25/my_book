@@ -11,8 +11,8 @@ class Buku:
         return f"Judul: {self.judul}, Penulis: {self.penulis}, Tahun: {self.tahun_terbit}"
 
 # Data disimpan di list session_state
-if 'data_mahasiswa' not in st.session_state:
-    st.session_state.data_mahasiswa = []
+if 'data_buku' not in st.session_state:
+    st.session_state.data_buku = []
 
 # Tampilan utama
 #format berupa judul/bold
@@ -30,9 +30,9 @@ menu = st.text_input("Masukkan angka menu (1-4):")
 # Fungsi menu
 if menu == "1":
     st.subheader("📄 Daftar koleksi buku")
-    if st.session_state.data_mahasiswa:
-        for i, mhs in enumerate(st.session_state.data_mahasiswa):
-            st.write(f"{i+1}. {mhs}")
+    if st.session_state.data_buku:
+        for i, book in enumerate(st.session_state.data_buku):
+            st.write(f"{i+1}. {book}")
     else:
         st.info("Belum ada data.")
 
@@ -43,22 +43,20 @@ elif menu == "2":
     tahun_terbit = st.text_input("Masukkan Tahun Terbit")
     if st.button("Simpan"):
         if judul and penulis and tahun_terbit:
-            mhs = Buku(judul=judul, penulis=penulis, tahun_terbit=tahun_terbit)
-            st.session_state.data_mahasiswa.append(mhs)
+            book = Buku(judul=judul, penulis=penulis, tahun_terbit=tahun_terbit)
+            st.session_state.data_buku.append(book)
             st.success("Data berhasil ditambahkan.")
         else:
             st.warning("Harap isi semua kolom.")
 
 elif menu == "3":
-    st.subheader("✏️ Ubah Buku")
-    data = st.session_state.data_mahasiswa
+    st.subheader("✏️ Ubah Mahasiswa")
+    data = st.session_state.data_buku
     
 
 elif menu == "4":
-    st.subheader("🗑️ Hapus Buku")
+    st.subheader("🗑️ Hapus Mahasiswa")
     
 
 elif menu != "":
     st.warning("Masukkan angka 1 - 4 sesuai menu.")
-
-
